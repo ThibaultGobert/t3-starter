@@ -15,7 +15,7 @@ const ParticlesEngine = ({playAnimation}: {playAnimation: boolean}) => {
         await loadFull(engine);
     }, []);
 
-    // TODO fix any typing (check library type)
+    // TODO fix any typing (check library)
     // eslint-disable-next-line
     const [options, setOptions] = useState<any>(null)
 

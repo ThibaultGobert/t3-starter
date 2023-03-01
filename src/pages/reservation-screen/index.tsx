@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, memo } from 'react';
+import { ParticlesEngine } from '../../components';
 import Chair from './chair';
 
 import styles from './styles.module.css'
@@ -36,7 +37,7 @@ const ReservationScreen = () => {
         <Chair onReservateCallback={() => startAnimation()} className={styles.firstChair} />
         <Chair onReservateCallback={() => startAnimation()} className={styles.secondChair} />
         <div className='border-4 border-black h-20 w-10' />
-        {/* <ParticlesEngine playAnimation={playAnimation} /> */}
+        <ParticlesEngine playAnimation={playAnimation} />
       </div>
     );
   };
