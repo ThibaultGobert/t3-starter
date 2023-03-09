@@ -3,6 +3,7 @@ import Particles from "react-particles";
 import type { Engine } from "tsparticles-engine";
 import { loadFull } from "tsparticles";
 import {particleOptionsDesktop, particleOptionsMobile} from "./particle-options";
+import { isDesktop } from "../../utils/window-utils";
 
 const ParticlesEngine = ({playAnimation}: {playAnimation: boolean}) => {
 
@@ -19,15 +20,14 @@ const ParticlesEngine = ({playAnimation}: {playAnimation: boolean}) => {
     // eslint-disable-next-line
     const [options, setOptions] = useState<any>(null)
 
-    const isDesktop = window !== undefined && window.innerWidth > 450
 
     useEffect(() => {
         if (playAnimation) {
-            setOptions(isDesktop ? particleOptionsDesktop : particleOptionsMobile)
+            setOptions(isDesktop() ? particleOptionsDesktop : particleOptionsMobile)
         } else {
             setOptions(null)
         }
-    }, [playAnimation])
+    }, [playAnimation, isDesktop])
 
     return (
         <Particles

@@ -33,7 +33,7 @@ const Chair = ({className, onReservateCallback}: ChairProps ) => {
                 renderBackdrop={() => <Backdrop onClick={() => setIsClicked(false)}/>}
             >
                 <div className="flex flex-col justify-center items-center">
-                    <div className={`flex justify-center font-bold text-lg ${styles.title}`} >Stoel reservatie</div>
+                    <div className={`flex justify-center font-bold text-lg ${styles.title as string}`} >Stoel reservatie</div>
                     <div className={styles.divider} />
                     <div className="flex justify-center text-center" >Ben je zeker dat je deze plaats wil reserveren?</div>
                     <button
