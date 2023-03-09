@@ -1,5 +1,6 @@
 import { Session } from 'next-auth'
 import { signIn, signOut } from "next-auth/react";
+import CustomButton from '../../components/custom-button';
 
 
 interface AuthProps {
@@ -13,12 +14,16 @@ const AuthShowcase: React.FC<AuthProps> = ({sessionData}) => {
         <p className="text-center text-2xl text-white">
           {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
         </p>
-        <button
+        {/* <button
           className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
           onClick={sessionData ? () => void signOut() : () => void signIn()}
         >
           {sessionData ? "Sign out" : "Sign in"}
-        </button>
+        </button> */}
+        <CustomButton
+          onClick={sessionData ? () => void signOut() : () => void signIn()}
+          title={sessionData ? "Sign out" : "Sign in"}
+        />
       </div>
     );
   };
