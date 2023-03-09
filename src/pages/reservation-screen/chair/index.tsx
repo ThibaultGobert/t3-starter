@@ -21,7 +21,7 @@ const Chair = ({className, onReservateCallback}: ChairProps ) => {
 
     return (
         <>
-            <div onClick={handleOnClick}>
+            <div className="hover:cursor-pointer" onClick={handleOnClick}>
                 <ChairSvg className={classNames(styles.chair, {[className as string]: className, [styles.active as string]: isClicked || isConfirmed})} />
             </div>
 
@@ -32,9 +32,10 @@ const Chair = ({className, onReservateCallback}: ChairProps ) => {
                 backdrop={true}
                 renderBackdrop={() => <Backdrop onClick={() => setIsClicked(false)}/>}
             >
-                <div className="flex flex-col justify-center items-center" >
-                    <div className="flex justify-center font-bold text-lg" >Stoel reservatie</div>
-                    <div className="flex justify-center" >Ben je zeker dat je deze plaats wil reserveren?</div>
+                <div className="flex flex-col justify-center items-center">
+                    <div className={`flex justify-center font-bold text-lg ${styles.title}`} >Stoel reservatie</div>
+                    <div className={styles.divider} />
+                    <div className="flex justify-center text-center" >Ben je zeker dat je deze plaats wil reserveren?</div>
                     <button
                         className={styles.reservationButton}
                         onClick={() => {

@@ -2,7 +2,7 @@ import { useCallback, memo, useState, useEffect } from "react";
 import Particles from "react-particles";
 import type { Engine } from "tsparticles-engine";
 import { loadFull } from "tsparticles";
-import particleOptions from "./particle-options";
+import {particleOptionsDesktop, particleOptionsMobile} from "./particle-options";
 
 const ParticlesEngine = ({playAnimation}: {playAnimation: boolean}) => {
 
@@ -19,9 +19,11 @@ const ParticlesEngine = ({playAnimation}: {playAnimation: boolean}) => {
     // eslint-disable-next-line
     const [options, setOptions] = useState<any>(null)
 
+    const isDesktop = window !== undefined && window.innerWidth > 450
+
     useEffect(() => {
         if (playAnimation) {
-            setOptions(particleOptions)
+            setOptions(isDesktop ? particleOptionsDesktop : particleOptionsMobile)
         } else {
             setOptions(null)
         }
